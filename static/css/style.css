@@ -1,0 +1,1799 @@
+/* ===========================================
+   ATM Shield AI
+   Corporate Banking Dashboard
+   Developed by Sentinel Labs
+=========================================== */
+
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Body */
+
+body{
+
+    font-family:'Inter',sans-serif;
+
+    background:#0B1120;
+
+    color:white;
+
+    overflow:hidden;
+
+}
+/* ==========================
+   Dashboard Layout
+========================== */
+
+.dashboard{
+
+    display:flex;
+
+    height:100vh;
+
+}
+.sidebar{
+
+    width:260px;
+
+    background:#111827;
+
+}
+.content-wrapper{
+
+    flex:1;
+
+}
+.top-navbar{
+
+    height:70px;
+
+    background:#1E293B;
+
+}
+.main-content{
+
+    flex:1;
+
+    height:100vh;
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
+    padding-bottom:60px;
+
+}
+/* ==========================
+   Sidebar
+========================== */
+.sidebar{
+
+    width:260px;
+    background:#111827;
+
+    display:flex;
+    flex-direction:column;
+
+    border-right:1px solid #334155;
+
+    height:100vh;
+
+    overflow-y:auto;
+
+}
+
+/* ==========================
+   Brand Section
+========================== */
+
+.brand-section{
+    text-align:center;
+    padding:35px 20px;
+    border-bottom:1px solid #334155;
+}
+
+.logo{
+    width:75px;
+    height:75px;
+    margin:auto;
+    border-radius:50%;
+    background:#2563EB;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.brand-section h2{
+    font-size:24px;
+    font-weight:700;
+}
+
+.brand-section p{
+    color:#94A3B8;
+    margin-top:8px;
+    font-size:14px;
+}
+
+/* ==========================
+   Navigation Menu
+========================== */
+.navigation-menu{
+
+    padding:20px 15px;
+
+}
+
+.nav-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:15px;
+
+    margin-bottom:10px;
+
+    border-radius:12px;
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.nav-item:hover{
+
+    background:#1E40AF;
+
+    transform:translateX(5px);
+
+}
+
+.nav-item.active{
+
+    background:#2563EB;
+
+}
+
+.nav-item i{
+
+    font-size:20px;
+
+    width:25px;
+
+    text-align:center;
+
+}
+
+.nav-item h4{
+
+    font-size:16px;
+
+    margin:0;
+
+    font-weight:600;
+
+}
+
+.nav-item span{
+
+    font-size:12px;
+
+    color:#CBD5E1;
+
+}
+
+/* ==========================
+   System Status
+========================== */
+.system-status{
+
+    margin-top:auto;
+
+    padding:20px;
+
+    border-top:1px solid #334155;
+
+}
+
+.system-status h3{
+
+    color:#94A3B8;
+
+    font-size:14px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    margin-bottom:15px;
+
+}
+
+.status-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:12px;
+
+    color:white;
+
+    font-size:14px;
+
+}
+
+.status-dot{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+}
+
+.online{
+
+    background:#22C55E;
+
+    box-shadow:0 0 8px #22C55E;
+
+}
+
+
+/* ==========================
+   Logout
+========================== */
+
+.logout-section{
+
+    padding:20px;
+
+    border-top:1px solid #334155;
+
+}
+
+.logout-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    text-decoration:none;
+
+    color:#F87171;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    transition:.3s;
+
+}
+
+.logout-btn:hover{
+
+    background:#7F1D1D;
+
+    color:white;
+
+}
+/* ==========================
+   Top Navigation
+========================== */
+
+.top-navbar{
+
+    height:80px;
+
+    background:#1E293B;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 30px;
+
+    border-bottom:1px solid #334155;
+
+    gap:20px;
+
+}
+/* Left */
+
+.nav-left h2{
+
+    color:white;
+
+    font-size:24px;
+
+}
+
+.nav-left p{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+}
+.nav-left{
+
+    flex:1;
+
+    min-width:420px;
+
+}
+.nav-center{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+/* Search */
+
+.search-box{
+
+    width:100%;
+
+    max-width:380px;
+
+    background:#0F172A;
+
+    padding:10px 15px;
+
+    border-radius:10px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.search-box input{
+
+    background:none;
+
+    border:none;
+
+    outline:none;
+
+    color:white;
+
+    width:250px;
+
+}
+
+.search-box i{
+
+    color:#94A3B8;
+
+}
+
+/* Right */
+
+.nav-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.notification{
+
+    position:relative;
+
+    font-size:22px;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+.badge{
+
+    position:absolute;
+
+    top:-8px;
+
+    right:-10px;
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    background:red;
+
+    color:white;
+
+    font-size:10px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.profile i{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    background:#2563EB;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:22px;
+
+}
+
+.profile h4{
+
+    color:white;
+
+    margin:0;
+
+}
+
+.profile span{
+
+    color:#94A3B8;
+
+    font-size:12px;
+
+}
+/* ==========================
+   Dashboard Cards
+========================== */
+
+.dashboard-cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+    padding:25px;
+
+}
+
+.card{
+
+    background:#1E293B;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    border:1px solid #334155;
+
+    transition:0.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#2563EB;
+
+}
+
+.card-icon{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:15px;
+
+    background:#2563EB;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:26px;
+
+}
+
+.card-icon.danger{
+
+    background:#DC2626;
+
+}
+
+.card-icon.warning{
+
+    background:#D97706;
+
+}
+
+.card-icon.success{
+
+    background:#16A34A;
+
+}
+
+.card-info h4{
+
+    color:#94A3B8;
+
+    font-size:14px;
+
+    margin-bottom:8px;
+
+}
+
+.card-info h2{
+
+    color:white;
+
+    font-size:28px;
+
+    margin-bottom:5px;
+
+}
+
+.card-info p{
+
+    color:#64748B;
+
+    font-size:12px;
+
+}
+/* =========================================
+      ATM SECTION
+========================================= */
+
+.atm-section{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:25px;
+
+    align-items:start;
+
+}
+
+/* =========================================
+      ATM MACHINE
+========================================= */
+
+.atm-machine{
+
+    background:#C7CEDB;
+    border:6px solid #8B949E;
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+
+}
+
+/* ATM HEADER */
+
+.atm-top{
+
+    text-align:center;
+    margin-bottom:25px;
+
+}
+
+.atm-bank-icon{
+
+    font-size:55px;
+    color:#2563EB;
+
+}
+
+.atm-top h2{
+
+    color:#1E293B;
+    margin-top:10px;
+    font-size:34px;
+
+}
+
+.atm-top p{
+
+    color:#475569;
+    font-size:15px;
+
+}
+
+/* ATM SCREEN */
+
+.atm-screen{
+
+    background:#0F172A;
+    border:10px solid #475569;
+    border-radius:20px;
+
+    height:340px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.camera-placeholder{
+
+    text-align:center;
+    color:white;
+
+}
+
+.camera-placeholder i{
+
+    font-size:70px;
+    color:#2563EB;
+    margin-bottom:20px;
+
+}
+
+.camera-placeholder h2{
+
+    margin-bottom:15px;
+
+}
+
+.camera-placeholder p{
+
+    color:#94A3B8;
+
+}
+
+/* SECURITY DISPLAY */
+
+.security-display{
+
+    margin-top:25px;
+
+    background:#111827;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    text-align:center;
+
+}
+
+.security-display h3{
+
+    color:#22C55E;
+
+    margin-bottom:10px;
+
+}
+
+.security-display p{
+
+    color:white;
+
+    line-height:1.7;
+
+}
+
+/* CARD SLOT */
+
+.card-slot{
+
+    text-align:center;
+
+    margin-top:30px;
+
+}
+
+.slot-line{
+
+    width:230px;
+    height:8px;
+
+    background:#374151;
+
+    margin:auto;
+
+    border-radius:20px;
+
+}
+
+.card-slot span{
+
+    display:block;
+
+    margin-top:10px;
+
+    font-weight:bold;
+
+    color:#1E293B;
+
+}
+
+/* ATM KEYPAD */
+
+.atm-keypad{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,70px);
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin-top:25px;
+
+}
+
+.atm-keypad button{
+
+    width:70px;
+    height:55px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#374151;
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.atm-keypad button:hover{
+
+    background:#2563EB;
+
+}
+
+/* CASH SLOT */
+
+.cash-slot{
+
+    text-align:center;
+
+    margin-top:30px;
+
+}
+
+.cash-slot span{
+
+    display:block;
+
+    margin-top:10px;
+
+    font-weight:bold;
+
+    color:#1E293B;
+
+}
+
+/* =========================================
+      AI DECISION PANEL
+========================================= */
+
+.decision-panel{
+
+    background:#1E293B;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    border:1px solid #334155;
+
+}
+
+.decision-panel h2{
+
+    color:white;
+
+}
+
+.decision-panel hr{
+
+    margin:20px 0;
+
+    border-color:#334155;
+
+}
+
+.decision-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:15px 0;
+
+    border-bottom:1px solid #334155;
+
+}
+
+.decision-item span{
+
+    color:#94A3B8;
+
+}
+
+.decision-item strong{
+
+    color:white;
+
+}
+/* Camera Box */
+
+.atm-screen{
+
+    position:relative;
+
+    width:640px;
+
+    height:480px;
+
+    background:black;
+
+    margin:20px auto;
+
+    overflow:hidden;
+
+    border-radius:15px;
+
+}
+
+/* Live Camera */
+
+#liveCamera{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+/* Top Overlay */
+
+.camera-overlay{
+
+    position:absolute;
+
+    top:10px;
+
+    left:15px;
+
+    right:15px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    z-index:100;
+
+}
+
+/* Bottom Overlay */
+
+.camera-footer{
+
+    position:absolute;
+
+    bottom:10px;
+
+    left:15px;
+
+    right:15px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:white;
+
+    font-size:14px;
+
+    z-index:100;
+
+    text-shadow:0 0 5px black;
+
+}
+.recording{
+
+    color:red;
+
+    font-weight:bold;
+
+    animation:blink 1s infinite;
+
+}
+
+@keyframes blink{
+
+    0%{opacity:1;}
+
+    50%{opacity:0;}
+
+    100%{opacity:1;}
+
+}
+/* ================================
+   CAMERA TOP BAR
+================================ */
+
+.camera-overlay{
+
+    position:absolute;
+
+    top:12px;
+
+    left:15px;
+
+    right:15px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    z-index:10;
+
+    text-shadow:0 0 8px black;
+
+}
+.recording{
+
+    color:red;
+
+    font-weight:bold;
+
+    animation:blink 1s infinite;
+
+}
+
+@keyframes blink{
+
+    0%{
+
+        opacity:1;
+
+    }
+
+    50%{
+
+        opacity:0;
+
+    }
+
+    100%{
+
+        opacity:1;
+
+    }
+
+}
+/* ================================
+   CAMERA BOTTOM BAR
+================================ */
+
+.camera-footer{
+
+    position:absolute;
+
+    bottom:12px;
+
+    left:15px;
+
+    right:15px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:500;
+
+    z-index:10;
+
+    text-shadow:0 0 8px black;
+
+}
+.camera-status{
+
+    color:#00ff66;
+
+    font-weight:bold;
+
+}
+/* ==========================================
+        LOADING SCREEN
+========================================== */
+
+.loading-body{
+
+    margin:0;
+
+    padding:0;
+
+    background:#0F172A;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    height:100vh;
+
+    font-family:'Inter',sans-serif;
+
+}
+
+.loading-container{
+
+    width:550px;
+
+    background:#1E293B;
+
+    border:1px solid #334155;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    text-align:center;
+
+    box-shadow:0 0 40px rgba(0,0,0,.5);
+
+}
+
+.loading-container h1{
+
+    color:#38BDF8;
+
+    margin-bottom:10px;
+
+}
+
+.loading-container h2{
+
+    color:white;
+
+    margin-bottom:10px;
+
+}
+
+.loading-container p{
+
+    color:#94A3B8;
+
+    margin-bottom:35px;
+
+}
+
+.progress-box{
+
+    width:100%;
+
+    height:18px;
+
+    background:#334155;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-bottom:30px;
+
+}
+
+#progressBar{
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(90deg,#2563EB,#38BDF8);
+
+    transition:width .2s;
+
+}
+
+#loadingText{
+
+    color:white;
+
+    font-size:18px;
+
+}
+/* =========================================
+      SYSTEM NOTIFICATION
+========================================= */
+
+.system-notification{
+
+    position:fixed;
+
+    top:25px;
+
+    right:-350px;
+
+    width:300px;
+
+    background:#1E293B;
+
+    border-left:5px solid #22C55E;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    color:white;
+
+    box-shadow:0 0 20px rgba(0,0,0,.4);
+
+    z-index:9999;
+
+    transition:0.6s;
+
+}
+
+.system-notification.show{
+
+    right:20px;
+
+}
+
+.system-notification h4{
+
+    color:#38BDF8;
+
+    margin-bottom:12px;
+
+}
+
+.system-notification p{
+
+    margin:8px 0;
+
+    color:#E2E8F0;
+
+}
+/* =========================================
+      EMERGENCY ALERT POPUP
+========================================= */
+
+.alert-popup{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(0,0,0,0.75);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    visibility:hidden;
+
+    opacity:0;
+
+    transition:0.4s;
+
+    z-index:10000;
+
+}
+
+/* Show Popup */
+
+.alert-popup.show{
+
+    visibility:visible;
+
+    opacity:1;
+
+}
+
+/* Alert Box */
+
+.alert-box{
+
+    width:550px;
+
+    background:#7F1D1D;
+
+    border:3px solid red;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    text-align:center;
+
+    color:white;
+
+    box-shadow:0 0 35px red;
+
+}
+
+/* Heading */
+
+.alert-box h1{
+
+    color:#FFD700;
+
+    margin-bottom:20px;
+
+    font-size:34px;
+
+}
+
+/* Threat Name */
+
+.alert-box h2{
+
+    color:white;
+
+    margin-bottom:20px;
+
+    font-size:28px;
+
+}
+
+/* Message */
+
+.alert-box p{
+
+    font-size:22px;
+
+    margin-bottom:30px;
+
+}
+
+/* Countdown */
+
+#countdown{
+
+    font-size:70px;
+
+    font-weight:bold;
+
+    color:#FFD700;
+
+}
+/* =========================================
+      INCIDENT LOG
+========================================= */
+
+.incident-panel{
+
+    background:#1E293B;
+
+    margin-top:20px;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    border:1px solid #334155;
+
+}
+
+.incident-panel h2{
+
+    color:white;
+
+    margin-bottom:15px;
+
+}
+
+.incident-log{
+
+    max-height:250px;
+
+    overflow-y:auto;
+
+}
+
+.incident-log p{
+
+    color:#E2E8F0;
+
+    margin:10px 0;
+
+    border-bottom:1px solid #334155;
+
+    padding-bottom:8px;
+
+}
+/* ==========================================
+   RIGHT SIDE PANEL
+========================================== */
+
+.right-panel{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+/* ===== Live Camera Header ===== */
+
+.camera-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.camera-header h2{
+    color:#ffffff;
+    font-size:24px;
+    font-weight:600;
+}
+
+.camera-live{
+    background:#ff0000;
+    color:#fff;
+    padding:8px 16px;
+    border-radius:25px;
+    font-size:14px;
+    font-weight:bold;
+    animation:blink 1s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:.4;
+    }
+}
+
+/* =====================================================
+   VISIONGUARD - NEW DASHBOARD CAMERA LAYOUT
+   Layer 1: Camera + AI Decision Layout
+===================================================== */
+
+.main-content {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 40px;
+}
+
+/* Main monitoring area */
+.atm-section {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr);
+    gap: 22px;
+    align-items: start;
+    padding: 20px 25px 40px;
+}
+
+/* Camera/ATM area */
+.atm-machine {
+    width: 100%;
+    min-width: 0;
+    padding: 24px;
+}
+
+/* Camera heading */
+.camera-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.camera-header h2 {
+    margin: 0;
+    color: #1e293b;
+    font-size: 25px;
+}
+
+.camera-live {
+    background: #ef4444;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+/* Actual camera */
+.atm-machine .atm-screen {
+    position: relative;
+    width: 100%;
+    height: min(58vh, 520px);
+    min-height: 400px;
+    margin: 0;
+    background: #050505;
+    border: 8px solid #475569;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+/* Video */
+#liveCamera {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Camera information */
+.camera-overlay {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    right: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 20;
+
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+
+    text-shadow: 0 2px 5px #000;
+}
+
+/* Bottom camera information */
+.camera-footer {
+    position: absolute;
+    bottom: 12px;
+    left: 15px;
+    right: 15px;
+
+    display: flex;
+    justify-content: space-between;
+
+    z-index: 20;
+
+    color: white;
+    font-size: 13px;
+
+    text-shadow: 0 2px 5px #000;
+}
+
+/* AI Decision panel */
+.decision-panel {
+    width: 100%;
+    position: sticky;
+    top: 20px;
+
+    background: #1e293b;
+    border-radius: 18px;
+    padding: 24px;
+
+    border: 1px solid #334155;
+}
+
+/* ATM display below camera */
+.security-display {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Incident panel */
+.incident-panel {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Remove unused empty panel */
+.right-panel {
+    display: none;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+
+    .atm-section {
+        grid-template-columns: 1fr;
+    }
+
+    .decision-panel {
+        position: relative;
+        top: 0;
+    }
+
+    .atm-machine .atm-screen {
+        height: 60vh;
+    }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+
+    .atm-section {
+        padding: 15px;
+    }
+
+    .atm-machine {
+        padding: 15px;
+    }
+
+    .atm-machine .atm-screen {
+        height: 55vh;
+        min-height: 300px;
+    }
+
+}
+
+/* =========================================
+   VISIONGUARD MAIN MONITORING LAYOUT
+========================================= */
+
+.atm-section {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
+    gap: 22px;
+    align-items: start;
+    padding: 20px 25px 40px;
+}
+
+/* LEFT SIDE */
+
+.monitoring-column {
+    min-width: 0;
+    width: 100%;
+}
+
+/* CAMERA CONTAINER */
+
+.monitoring-column .atm-machine {
+    width: 100%;
+    padding: 20px;
+}
+
+/* CAMERA */
+
+.monitoring-column .atm-screen {
+    position: relative;
+
+    width: 100%;
+    height: 520px;
+
+    margin: 15px 0 0;
+
+    background: #050505;
+
+    border: 8px solid #475569;
+    border-radius: 16px;
+
+    overflow: hidden;
+}
+
+/* VIDEO */
+
+.monitoring-column #liveCamera {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+/* ATM DISPLAY */
+
+.monitoring-column .security-display {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* INCIDENT LOG */
+
+.monitoring-column .incident-panel {
+    width: 100%;
+    margin-top: 20px;
+
+    background: #1e293b;
+
+    border: 1px solid #334155;
+
+    border-radius: 18px;
+
+    padding: 20px;
+}
+
+/* INCIDENT TITLE */
+
+.monitoring-column .incident-panel h2 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+/* INCIDENT CONTENT */
+
+.monitoring-column .incident-log {
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+/* RIGHT SIDE */
+
+.atm-section > .decision-panel {
+    width: 100%;
+
+    position: sticky;
+    top: 20px;
+}
+
+/* REMOVE OLD EMPTY GRID PANEL */
+
+.atm-section .right-panel {
+    display: none !important;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .atm-section {
+        grid-template-columns: 1fr;
+    }
+
+    .atm-section > .decision-panel {
+        position: relative;
+        top: 0;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .atm-section {
+        padding: 15px;
+    }
+
+    .monitoring-column .atm-machine {
+        padding: 12px;
+    }
+
+    .monitoring-column .atm-screen {
+        height: 400px;
+    }
+
+}
+
+/* =========================================
+   YOLO DETECTION CAMERA OVERLAY
+========================================= */
+
+.camera-view {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.camera-view #liveCamera {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+#detectionCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+    z-index: 10;
+}

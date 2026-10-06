@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg-link
+
+# Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+
+# Model weights (large binary files)
+models/*.pt
+models/*.onnx
+models/*.engine
+models/*.torchscript
+*.pt
+*.onnx
+*.engine
+*.tflite
+
+# Training runs
+runs/
+
+# Alerts & Snapshots
+alerts/snapshots/*.jpg
+alerts/snapshots/*.jpeg
+alerts/snapshots/*.png
+alerts/concealment_incidents.csv
+
+# Dataset images & labels (large, not tracked)
+data/images/
+data/labels/
+data/raw/
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak

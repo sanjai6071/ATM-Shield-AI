@@ -1,0 +1,8 @@
+Project Overview
+Features
+Architecture
+Technologies
+Installation
+Screenshots
+Future Scope
+Contributors

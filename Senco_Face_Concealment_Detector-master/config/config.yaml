@@ -1,0 +1,89 @@
+# Global Configuration for Face Concealment & Masking Detection
+
+# RTSP Stream & Input Settings
+stream:
+  source: 0                 # RTSP URL (e.g. "rtsp://username:password@192.168.1.100:554/stream1"), Video path, or Webcam Index (0)
+  reconnect_interval_sec: 5 # Reconnection retry delay when RTSP stream drops
+  frame_buffer_size: 1      # Keep at 1 for lowest real-time latency (drops stale frames)
+  target_fps: 30            # Target processing/display FPS
+  input_resolution: [1280, 720] # Resize stream frame if needed ([width, height] or null for original)
+
+# Model Settings
+model:
+  weights_path: "models/face_concealment_yolov8.pt" # Primary YOLO detection model
+  fallback_model: "yolov8n.pt"                     # Fallback pretrained model
+  device: "auto"                                   # "cuda", "cpu", or "auto"
+  imgsz: 640                                       # Model inference resolution
+  conf_threshold: 0.35                             # Base confidence threshold
+  iou_threshold: 0.45                              # Non-Maximum Suppression (NMS) IoU threshold
+  half_precision: false                            # FP16 inference for faster GPU processing
+  tracker: "bytetrack.yaml"                        # Multi-object tracker config
+
+# Face Concealment Categories, Threat Levels, & Visualization Colors
+classes:
+  balaclava_ski_mask:
+    id: 0
+    display_name: "Balaclava / Ski Mask"
+    conf_threshold: 0.40
+    color_bgr: [0, 0, 255]      # Bright Red
+    threat_level: "CRITICAL"    # Threat severity: NORMAL, LOW, MEDIUM, HIGH, CRITICAL
+    alert_weight: 1.0
+  borkha_niqab_covering:
+    id: 1
+    display_name: "Burkha / Niqab Veil"
+    conf_threshold: 0.40
+    color_bgr: [0, 0, 255]      # Bright Red
+    threat_level: "CRITICAL"
+    alert_weight: 1.0
+  hand_face_covering:
+    id: 2
+    display_name: "Hand Concealing Face"
+    conf_threshold: 0.45
+    color_bgr: [0, 69, 255]     # Orange-Red
+    threat_level: "HIGH"
+    alert_weight: 0.95
+  full_face_helmet:
+    id: 3
+    display_name: "Full-Face Helmet"
+    conf_threshold: 0.45
+    color_bgr: [0, 69, 255]     # Orange-Red
+    threat_level: "HIGH"
+    alert_weight: 0.9
+  scarf_bandana:
+    id: 4
+    display_name: "Scarf / Cloth / Gamcha"
+    conf_threshold: 0.45
+    color_bgr: [0, 140, 255]    # Dark Orange
+    threat_level: "HIGH"
+    alert_weight: 0.85
+  surgical_mask:
+    id: 5
+    display_name: "Surgical / Cloth Mask"
+    conf_threshold: 0.45
+    color_bgr: [0, 215, 255]    # Gold / Amber
+    threat_level: "MEDIUM"
+    alert_weight: 0.5
+  clear_face:
+    id: 6
+    display_name: "Clear Face"
+    conf_threshold: 0.50
+    color_bgr: [0, 255, 0]      # Green
+    threat_level: "NORMAL"
+    alert_weight: 0.0
+
+# Alerting & Incident Logging Settings
+alert:
+  audio_alarm: true           # Trigger audio siren/alarm on HIGH/CRITICAL threats
+  cooldown_seconds: 3.0       # Minimum duration between consecutive incident snapshot alerts per track
+  persistence_frames: 4       # Number of consecutive frames detection must persist before triggering incident
+  snapshot_dir: "alerts/snapshots"
+  log_file: "alerts/concealment_incidents.csv"
+  save_annotated_crop: true   # Save cropped face bounding box in addition to full scene frame
+
+# Visualization & HUD
+ui:
+  show_fps: true
+  show_threat_banner: true
+  show_class_probabilities: true
+  show_track_id: true
+  window_name: "Senco Face Concealment & Masking Monitor"

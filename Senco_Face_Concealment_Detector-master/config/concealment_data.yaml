@@ -1,0 +1,16 @@
+# Dataset Configuration for Face Concealment & Masking Training
+
+# Path settings
+path: ../data               # dataset root dir
+train: images/train         # train images (relative to 'path')
+val: images/val             # val images (relative to 'path')
+test: images/test           # test images (optional)
+
+# Classes
+names:
+  0: balaclava_ski_mask
+  1: full_face_helmet
+  2: scarf_bandana
+  3: surgical_mask
+  4: sunglasses_cap_combo
+  5: clear_face

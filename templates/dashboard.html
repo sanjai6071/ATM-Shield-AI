@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ATM Shield AI - Dashboard</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+
+            <!-- Brand Section -->
+
+            <div class="brand-section">
+
+                <div class="logo">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                </div>
+
+                <h2>ATM Shield AI</h2>
+
+                <p>Sentinel Labs</p>
+
+            </div>
+
+            <!-- Navigation Menu -->
+
+            <nav class="navigation-menu">
+
+                <a href="#" class="nav-item active">
+                    <i class="fa-solid fa-gauge-high"></i>
+
+                    <div>
+                        <h4>Dashboard</h4>
+                        <span>Security Overview</span>
+                    </div>
+                </a>
+
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-video"></i>
+
+                    <div>
+                        <h4>Live Monitoring</h4>
+                        <span>Real-Time AI Detection</span>
+                    </div>
+                </a>
+
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    <div>
+                        <h4>Alerts</h4>
+                        <span>Incident Notifications</span>
+                    </div>
+                </a>
+
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-chart-column"></i>
+
+                    <div>
+                        <h4>Reports</h4>
+                        <span>Analytics & Statistics</span>
+                    </div>
+                </a>
+
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+
+                    <div>
+                        <h4>Event History</h4>
+                        <span>Previous Incidents</span>
+                    </div>
+                </a>
+
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-gear"></i>
+
+                    <div>
+                        <h4>Settings</h4>
+                        <span>System Configuration</span>
+                    </div>
+                </a>
+
+            </nav>
+
+            <!-- System Status -->
+
+            <div class="system-status">
+
+                <h3>System Status</h3>
+
+                <div class="status-item">
+                    <span class="status-dot online"></span>
+                    <span>AI Engine</span>
+                </div>
+
+                <div class="status-item">
+                    <span class="status-dot online"></span>
+                    <span>Camera</span>
+                </div>
+
+                <div class="status-item">
+                    <span class="status-dot online"></span>
+                    <span>Database</span>
+                </div>
+
+                <div class="status-item">
+                    <span class="status-dot online"></span>
+                    <span>Email Service</span>
+                </div>
+                <!-- Logout Section -->
+
+                <div class="logout-section">
+
+                    <a href="#" class="logout-btn">
+
+                        <i class="fa-solid fa-right-from-bracket"></i>
+
+                        <span>Logout</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- Main Section -->
+        <div class="content-wrapper">
+
+            <!-- Top Navigation -->
+            <header class="top-navbar">
+
+                <!-- Left -->
+
+                <div class="nav-left">
+
+                    <h2>ATM Security Operations Center</h2>
+
+                    <p>Real-Time AI Monitoring Dashboard</p>
+
+                </div>
+
+                <!-- Center -->
+
+                <div class="nav-center">
+
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="text" placeholder="Search incidents...">
+
+                    </div>
+
+                </div>
+
+                <!-- Right -->
+
+                <div class="nav-right">
+
+                    <div class="notification">
+
+                        <i class="fa-solid fa-bell"></i>
+
+                        <span class="badge">3</span>
+
+                    </div>
+
+                    <div class="profile">
+
+                        <i class="fa-solid fa-user-shield"></i>
+
+                        <div>
+
+                            <h4>ATM Manager</h4>
+
+                            <span>Security Admin</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- Main Content -->
+            <main class="main-content">
+
+                <!-- Dashboard Cards -->
+
+                <section class="dashboard-cards">
+
+                    <!-- Card 1 -->
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+
+                        <div class="card-info">
+                            <h4>People Inside</h4>
+                            <h2 id="peopleCount">2</h2>
+                            <p>Current Occupancy</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card">
+                        <div class="card-icon danger">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+
+                        <div class="card-info">
+                            <h4>Threat Level</h4>
+                            <h2 id="threatLevel">SAFE</h2>
+                            <p>AI Status</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card">
+                        <div class="card-icon warning">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </div>
+
+                        <div class="card-info">
+                            <h4>Today's Alerts</h4>
+                            <h2 id="alertCount">0</h2>
+                            <p>Security Events</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="card">
+                        <div class="card-icon success">
+                            <i class="fa-solid fa-building-columns"></i>
+                        </div>
+
+                        <div class="card-info">
+                            <h4>ATM Status</h4>
+                            <h2 id="atmStatus">ACTIVE</h2>
+                            <p>Transaction Ready</p>
+                        </div>
+                    </div>
+
+                </section>
+                <!-- =======================================
+     ATM Simulator & AI Decision Panel
+======================================= -->
+<section class="atm-section">
+
+    <!-- LEFT: CAMERA + ATM DISPLAY + INCIDENT LOG -->
+    <div class="monitoring-column">
+
+        <!-- CAMERA -->
+        <div class="atm-machine">
+
+            <div class="camera-header">
+                <h2>
+                    <i class="fa-solid fa-video"></i>
+                    Live ATM Surveillance
+                </h2>
+
+                <span class="camera-live">● LIVE</span>
+            </div>
+
+            <div class="atm-screen">
+
+                <div class="camera-overlay">
+
+                    <span class="camera-id">
+                        ATM CAM 01
+                    </span>
+
+                    <span class="camera-status">
+                        🟢 ONLINE
+                    </span>
+
+                    <span class="recording">
+                        🔴 REC
+                    </span>
+
+                </div>
+<div class="camera-view">
+
+    <video id="liveCamera" autoplay muted playsinline></video>
+
+    <canvas id="detectionCanvas"></canvas>
+
+</div>
+
+<canvas id="captureCanvas" style="display:none;"></canvas>
+
+                <div class="camera-footer">
+
+                    <span id="aiStatus">
+                        🟢 AI Monitoring
+                    </span>
+
+                    <span id="currentTime">
+                        Loading...
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ATM DISPLAY -->
+        <div class="security-display">
+
+            <h3>ATM DISPLAY</h3>
+
+            <p id="atmMessage">
+                Welcome to Zenith Bank<br>
+                Please insert your ATM card.
+            </p>
+
+        </div>
+
+
+        <!-- INCIDENT LOG -->
+        <div class="incident-panel">
+
+            <h2>
+                📋 Incident Log
+            </h2>
+
+            <div
+                id="incidentLog"
+                class="incident-log">
+
+                <p>
+                    🟢 System Started
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- RIGHT: AI DECISION ENGINE -->
+    <div class="decision-panel">
+
+        <h2>AI Decision Engine</h2>
+
+        <hr>
+
+        <div class="decision-item">
+
+            <span>Object</span>
+
+            <strong id="objectName">
+                None
+            </strong>
+
+        </div>
+
+        <div class="decision-item">
+
+            <span>Confidence</span>
+
+            <strong id="confidence">
+                0%
+            </strong>
+
+        </div>
+
+        <div class="decision-item">
+
+            <span>Threat Level</span>
+
+            <strong id="riskLevel">
+                SAFE
+            </strong>
+
+        </div>
+
+        <div class="decision-item">
+
+            <span>Threat Score</span>
+
+            <strong id="score">
+                0
+            </strong>
+
+        </div>
+
+        <div class="decision-item">
+
+            <span>Countdown</span>
+
+            <strong id="timer">
+                --
+            </strong>
+
+        </div>
+
+        <div class="decision-item">
+
+            <span>Email</span>
+
+            <strong id="emailStatus">
+                Waiting
+            </strong>
+
+        </div>
+
+        <div class="decision-item">
+
+            <span>Evidence</span>
+
+            <strong id="captureStatus">
+                Waiting
+            </strong>
+
+        </div>
+
+        <button
+            id="testVoiceBtn"
+            class="btn btn-danger w-100 mt-4">
+
+            🔊 Test Voice Warning
+<button onclick="testTamilVoice()">🔊 Test Tamil Voice</button>
+        </button>
+
+    </div>
+
+</section>
+
+        </main>
+
+    </div>
+
+    </div>
+
+
+    <!-- =========================================
+     SYSTEM NOTIFICATION
+========================================= -->
+
+    <div id="systemNotification" class="system-notification">
+
+        <h4>🛡 ATM Shield AI</h4>
+
+        <p>🟢 System Online</p>
+
+        <p>📷 Camera Connected</p>
+
+        <p>🤖 AI Monitoring Active</p>
+
+        <p>✔ Ready</p>
+
+    </div>
+    <!-- =========================================
+     EMERGENCY ALERT POPUP
+========================================= -->
+
+    <div id="alertPopup" class="alert-popup">
+
+        <div class="alert-box">
+
+            <h1>🚨 SECURITY ALERT 🚨</h1>
+
+            <h2 id="alertTitle">
+                Helmet Detected
+            </h2>
+
+            <p>
+                Please Remove Helmet Immediately
+            </p>
+
+            <div id="countdown">
+                10
+            </div>
+
+        </div>
+
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+
+</body>
+
+</html>
