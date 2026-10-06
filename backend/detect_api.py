@@ -1,21 +1,44 @@
+import os
 from ultralytics import YOLO
+
+# =========================
+# PROJECT BASE DIRECTORY
+# =========================
+
+BASE_DIR = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..")
+)
 
 # =========================
 # LOAD ALL AI MODELS
 # =========================
 
 helmet_model = YOLO(
-    r"D:\ATM-Shield-AI\runs\detect\helmet_training\fast_helmet\weights\best.pt"
+    os.path.join(
+        BASE_DIR,
+        "runs",
+        "detect",
+        "helmet_training",
+        "fast_helmet",
+        "weights",
+        "best.pt"
+    )
 )
 
 mask_model = YOLO(
-    r"D:\ATM-Shield-AI\models\mask_detector.pt"
+    os.path.join(
+        BASE_DIR,
+        "models",
+        "mask_detector.pt"
+    )
 )
 
 object_model = YOLO(
-    r"D:\ATM-Shield-AI\yolov8n.pt"
+    os.path.join(
+        BASE_DIR,
+        "yolov8n.pt"
+    )
 )
-
 
 # =========================
 # DETECTION
